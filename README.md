@@ -14,6 +14,9 @@ O repositório possui dois sub-diretórios: um para notebooks Jupyter e outro pa
 
 ### Markdowns
 
+- [Terminologia](./markdown/Terminologia.md): Terminologia utilizada no protocolo RPL. Baseada no [video](https://www.youtube.com/watch?v=kSiUGeUgJYQ) e revisada com base no [artigo](https://doi.org/10.2313/NET-2011-07-1_09).
+
+- [Mensagens de Controle RPL](./markdown/MensagensRPL.md): Apresentação das mensagens de controle e construção da rede DODAG. 
 
 
 ---
