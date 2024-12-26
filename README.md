@@ -4,9 +4,15 @@ Este repositório é dedicado a armazenar estudos teóricos e práticos sobre o 
 
 Neste repositório você encontrará alguns notebooks Python explorando a teoria e o funcionamento do protocolo RPL.
 
-## Catálogo
+## Organização do Repositório
+
+O repositório possui dois sub-diretórios: um para notebooks Jupyter e outro para notas em Markdown. A seguir catalogamos o material destes diretórios.
+
+### Notebooks
 
 - [Protótipo RPL simplificado](rpl-dodag-first-simulation.ipynb): Neste notebook é apresentada a construção básica do DODAG utilizando uma métrica simples. 
+
+### Markdowns
 
 
 
