@@ -10,13 +10,17 @@ O repositório possui dois sub-diretórios: um para notebooks Jupyter e outro pa
 
 ### Notebooks
 
-- [Protótipo RPL simplificado](rpl-dodag-first-simulation.ipynb): Neste notebook é apresentada a construção básica do DODAG utilizando uma métrica simples. 
+- [Protótipo RPL simplificado](./notebooks/rpl-dodag-first-simulation.ipynb): Neste notebook é apresentada a construção básica do DODAG utilizando uma métrica simples. 
+
+- [Modelagem da Construção DODAG](./notebooks/basic-dodag.ipynb): Neste notebook apresentamos uma formalização matemática da construção do DODAG e um exemplo de implementação do modelo.
 
 ### Markdowns
 
 - [Terminologia](./markdown/Terminologia.md): Terminologia utilizada no protocolo RPL. Baseada no [video](https://www.youtube.com/watch?v=kSiUGeUgJYQ) e revisada com base no [artigo](https://doi.org/10.2313/NET-2011-07-1_09).
 
 - [Mensagens de Controle RPL](./markdown/MensagensRPL.md): Apresentação das mensagens de controle e construção da rede DODAG. 
+
+- [Formalização da Construção DODAG](./markdown/Formalização.md): Modelagem matemática do DODAG.
 
 
 ---
