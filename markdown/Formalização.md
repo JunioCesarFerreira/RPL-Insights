@@ -16,7 +16,7 @@ Um modelo matemático para o protocolo RPL (Routing Protocol for Low-Power and L
    Cada nó $v$ escolhe um "pai preferido" com base em uma **função objetivo** $OF(v)$, que avalia o custo da rota com base em métricas $M_i(v)$:
 
 $$
-OF(v) = \min_{u \in N(v)} \{ C(v, u) + OF(u) \}
+OF(v) = \min_{u \in N(v)} \lbrace C(v, u) + OF(u) \rbrace
 $$
 
    Onde:
@@ -36,7 +36,7 @@ $$
    O funcionamento do protocolo pode ser descrito em termos de um sistema de equações baseadas em $OF$:
 
 $$
-OF(v) = \min_{u \in N(v)} \{ C(v, u) + OF(u) \}, \quad \forall v \in V \setminus \{r\}
+OF(v) = \min_{u \in N(v)} \lbrace C(v, u) + OF(u) \rbrace, \quad \forall v \in V \setminus \lbrace r\rbrace
 $$
 
 6. **Mensagens no Protocolo**  
@@ -62,7 +62,7 @@ $$
 Seja $V$ um conjunto de pontos em $\mathbb{R}^n$ ($n$ deve ser 2 ou 3 dependendo da aplicação). Definimos $\phi\in\mathbb{R}$ o raio de alcance, supondo que cada ponto possui o mesmo raio de alcance. Agora definimos o grafo $G=(V,E)$ onde $E$ é definido da seguinte forma:
 
 $$
-E:=\{(u,v)\in V\times V : d(u,v)<\phi\}
+E:=\lbrace(u,v)\in V\times V : d(u,v)<\phi\rbrace
 $$
 
 sendo $d$ a distância euclidiana.
@@ -75,7 +75,7 @@ A partir deste ponto, consideraremos que $G=(V,E)$ é um grafo conexo, e escolhe
 Defina $N_G:V\rightarrow 2^V$ a função que indica quais são os vizinhos de um vértice $v\in V$. 
 
 $$
-N_G(v):=\{u_1,u_2,...,u_k\}\Leftrightarrow \exists(u_i,v)\in E, \forall i\in\{1,2,...,k\}.
+N_G(v):=\lbrace u_1,u_2,...,u_k\rbrace\Leftrightarrow \exists(u_i,v)\in E, \forall i\in\lbrace1,2,...,k\rbrace.
 $$
 
 Para simplificar a notação, denotaremos $N_G(v)$ como $Nv$, o conjunto de vizinhos de $v$ no grafo $G$.
@@ -110,7 +110,7 @@ $$
 2. Iteração:
 
 $$
-OF^{(t+1)}(v) = \min_{u \in N(v)} \big \{ C(v, u) + OF^{(t)}(u) \big \}, \quad \forall v \in V.
+OF^{(t+1)}(v) = \min_{u \in N(v)} \big \lbrace C(v, u) + OF^{(t)}(u) \big \rbrace, \quad \forall v \in V.
 $$
 
 3. Convergência:
@@ -122,7 +122,7 @@ O algoritmo para quando $OF^{(t+1)}(v) = OF^{(t)}(v)$, $\forall v \in V$.
 Definimos o digrafo DODAG como $D = (V, E_D)$, onde $E_D$ é construído com base na função objetivo $OF$:
 
 $$
-E_D := \big \{(u, v) \in E : v = \arg \min_{w \in N_G(u)} \big( C(u, w) + OF(w) \big) \big \}.
+E_D := \bigg \lbrace(u, v) \in E : v = \arg \min_{w \in N_G(u)} \big( C(u, w) + OF(w) \big) \bigg \rbrace.
 $$
 
 #### Propriedades do DODAG:
@@ -136,7 +136,7 @@ $$
 
 2. Construção Iterativa:
 
-   Para cada $v \in V \setminus \{r\}$, identifique $u$ tal que:
+   Para cada $v \in V \setminus \lbrace r\rbrace$, identifique $u$ tal que:
 
 $$
 u = \arg \min_{w \in N_G(v)} \big( C(v, w) + OF(w) \big).
