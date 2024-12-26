@@ -110,7 +110,7 @@ $$
 2. Iteração:
 
 $$
-OF^{(t+1)}(v) = \min_{u \in N(v)} \big\{ C(v, u) + OF^{(t)}(u) \big\}, \quad \forall v \in V.
+OF^{(t+1)}(v) = \min_{u \in N(v)} \big \{ C(v, u) + OF^{(t)}(u) \big \}, \quad \forall v \in V.
 $$
 
 3. Convergência:
@@ -122,7 +122,7 @@ O algoritmo para quando $OF^{(t+1)}(v) = OF^{(t)}(v)$, $\forall v \in V$.
 Definimos o digrafo DODAG como $D = (V, E_D)$, onde $E_D$ é construído com base na função objetivo $OF$:
 
 $$
-E_D := \big\{(u, v) \in E : v = \arg \min_{w \in N_G(u)} \big( C(u, w) + OF(w) \big) \big\}.
+E_D := \big \{(u, v) \in E : v = \arg \min_{w \in N_G(u)} \big( C(u, w) + OF(w) \big) \big \}.
 $$
 
 #### Propriedades do DODAG:
