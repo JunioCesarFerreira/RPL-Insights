@@ -14,9 +14,11 @@ Um modelo matemático para o protocolo RPL (Routing Protocol for Low-Power and L
 
 3. **Métricas e Função Objetivo**  
    Cada nó $v$ escolhe um "pai preferido" com base em uma **função objetivo** $OF(v)$, que avalia o custo da rota com base em métricas $M_i(v)$:
-   $$
-   OF(v) = \min_{u \in N(v)} \{ C(v, u) + OF(u) \}
-   $$
+
+$$
+OF(v) = \min_{u \in N(v)} \{ C(v, u) + OF(u) \}
+$$
+
    Onde:
    - $N(v)$ é o conjunto de vizinhos de $v$.
    - $C(v, u)$ é o custo associado à aresta entre $v$ e $u$, que pode ser calculado usando métricas como:
@@ -32,9 +34,10 @@ Um modelo matemático para o protocolo RPL (Routing Protocol for Low-Power and L
 
 5. **Modelagem Matemática do RPL**
    O funcionamento do protocolo pode ser descrito em termos de um sistema de equações baseadas em $OF$:
-   $$
-   OF(v) = \min_{u \in N(v)} \{ C(v, u) + OF(u) \}, \quad \forall v \in V \setminus \{r\}
-   $$
+
+$$
+OF(v) = \min_{u \in N(v)} \{ C(v, u) + OF(u) \}, \quad \forall v \in V \setminus \{r\}
+$$
 
 6. **Mensagens no Protocolo**  
    O protocolo utiliza três tipos de mensagens:
@@ -43,9 +46,10 @@ Um modelo matemático para o protocolo RPL (Routing Protocol for Low-Power and L
    - **DIS (DODAG Information Solicitation):** Solicita informações de configuração ao DODAG.
 
    Formalizamos a propagação das mensagens como um sistema iterativo:
-   $$
-   M_{DIO}(v, u) = \text{Atualizar } OF(u) \text{ com base em } C(v, u) + OF(v)
-   $$
+
+$$
+M_{DIO}(v, u) = \text{Atualizar } OF(u) \text{ com base em } C(v, u) + OF(v)
+$$
 
 7. **Convergência e Propriedades**  
    - **Convergência:** O algoritmo converge para um estado estável onde $OF(v)$ é conhecido para todos os $v \in V$.
@@ -56,9 +60,11 @@ Um modelo matemático para o protocolo RPL (Routing Protocol for Low-Power and L
 ### Grafo inicial
 
 Seja $V$ um conjunto de pontos em $\mathbb{R}^n$ ($n$ deve ser 2 ou 3 dependendo da aplicação). Definimos $\phi\in\mathbb{R}$ o raio de alcance, supondo que cada ponto possui o mesmo raio de alcance. Agora definimos o grafo $G=(V,E)$ onde $E$ é definido da seguinte forma:
+
 $$
 E:=\{(u,v)\in V\times V : d(u,v)<\phi\}
 $$
+
 sendo $d$ a distância euclidiana.
 
 **Importante** 
@@ -67,9 +73,11 @@ A partir deste ponto, consideraremos que $G=(V,E)$ é um grafo conexo, e escolhe
 
 ### Vizinhança
 Defina $N_G:V\rightarrow 2^V$ a função que indica quais são os vizinhos de um vértice $v\in V$. 
+
 $$
 N_G(v):=\{u_1,u_2,...,u_k\}\Leftrightarrow \exists(u_i,v)\in E, \forall i\in\{1,2,...,k\}.
 $$
+
 Para simplificar a notação, denotaremos $N_G(v)$ como $Nv$, o conjunto de vizinhos de $v$ no grafo $G$.
 
 
@@ -90,6 +98,7 @@ Assim $OF(v)$ é o custo acumulado do nó $v$ até a raiz $r$.
 
 Em geral precisamos definir $OF$ iterativamente, isso é feito da seguinte forma:
 1. Inicialização:
+
 $$
 OF^{(0)}(v) =
 \begin{cases}
@@ -99,6 +108,7 @@ OF^{(0)}(v) =
 $$
 
 2. Iteração:
+
 $$
 OF^{(t+1)}(v) = \min_{u \in N(v)} \big\{ C(v, u) + OF^{(t)}(u) \big\}, \quad \forall v \in V.
 $$
@@ -110,6 +120,7 @@ O algoritmo para quando $OF^{(t+1)}(v) = OF^{(t)}(v)$, $\forall v \in V$.
 ## Construção do DODAG
 
 Definimos o digrafo DODAG como $D = (V, E_D)$, onde $E_D$ é construído com base na função objetivo $OF$:
+
 $$
 E_D := \big\{(u, v) \in E : v = \arg \min_{w \in N_G(u)} \big( C(u, w) + OF(w) \big) \big\}.
 $$
@@ -126,9 +137,11 @@ $$
 2. Construção Iterativa:
 
    Para cada $v \in V \setminus \{r\}$, identifique $u$ tal que:
-   $$
-   u = \arg \min_{w \in N_G(v)} \big( C(v, w) + OF(w) \big).
-   $$
+
+$$
+u = \arg \min_{w \in N_G(v)} \big( C(v, w) + OF(w) \big).
+$$
+
    Adicione $(u, v)$ a $E_D$.
 
 3. Finalização:
