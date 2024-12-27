@@ -22,6 +22,10 @@ O repositório possui dois sub-diretórios: um para notebooks Jupyter e outro pa
 
 - [Formalização da Construção DODAG](./markdown/Formalização.md): Modelagem matemática do DODAG.
 
+    - [Construção Iterativa da Função Objetivo](./markdown/ConvergenciaOF.md).
+
+    - [Demonstração Propriedades DODAG](./markdown/PropriedadesDODAG.md).
+
 
 ---
 
