@@ -32,7 +32,7 @@ $$
 - $D = (V, E_D)$ é o grafo direcionado construído a partir de $G$, onde:
 
 $$
-E_D := \lbrace (u, v) \in E : OF(v) = C(u, v) + OF(u)  \rbrace .
+E_D := \lbrace (u, v) \in E : OF(v) = C(u, v) + OF(u) \rbrace.
 $$
 
 - $C(u, v) > 0$, isto é, o custo das arestas é estritamente positivo.
@@ -46,51 +46,51 @@ Provar que $D$ é acíclico (um DAG).
 
     Suponha, por contradição, que $D$ contém um ciclo orientado:
 
-    $$
-    v_1 \to v_2 \to \cdots \to v_k \to v_1,
-    $$
+$$
+v_1 \to v_2 \to \cdots \to v_k \to v_1,
+$$
 
     onde $v_1, v_2, \dots, v_k$ são vértices distintos e $(v_i, v_{i+1}) \in E_D$, com $v_{k+1} = v_1$.
 
 2. **Propriedade de $OF$ nas Arestas**:
     Para cada aresta $(v_i, v_{i+1}) \in E_D$, temos que:
 
-    $$
-    OF(v_{i+1}) = C(v_i, v_{i+1}) + OF(v_i).
-    $$
+$$
+OF(v_{i+1}) = C(v_i, v_{i+1}) + OF(v_i).
+$$
 
 3. **Custo Total no Ciclo**:
     Somando ao longo do ciclo, obtemos:
     
-    $$
-    \sum_{i=1}^k OF(v_{i+1}) = \sum_{i=1}^k \big(C(v_i, v_{i+1}) + OF(v_i)\big).
-    $$
+$$
+\sum_{i=1}^k OF(v_{i+1}) = \sum_{i=1}^k \big(C(v_i, v_{i+1}) + OF(v_i)\big).
+$$
 
     Rearranjando os termos, temos:
 
-    $$
-    \sum_{i=1}^k OF(v_{i+1}) - \sum_{i=1}^k OF(v_i) = \sum_{i=1}^k C(v_i, v_{i+1}).
-    $$
+$$
+\sum_{i=1}^k OF(v_{i+1}) - \sum_{i=1}^k OF(v_i) = \sum_{i=1}^k C(v_i, v_{i+1}).
+$$
 
 4. **Condição no Ciclo**:
     Como $v_{k+1} = v_1$, temos que:
 
-    $$
-    \sum_{i=1}^k OF(v_{i+1}) = \sum_{i=1}^k OF(v_i).
-    $$
+$$
+\sum_{i=1}^k OF(v_{i+1}) = \sum_{i=1}^k OF(v_i).
+$$
 
     Isso implica que:
 
-    $$
-    \sum_{i=1}^k C(v_i, v_{i+1}) = 0.
-    $$
+$$
+\sum_{i=1}^k C(v_i, v_{i+1}) = 0.
+$$
 
 5. **Contradição**:
     Como $C(v_i, v_{i+1}) > 0$ para todas as arestas, temos que:
 
-    $$
-    \sum_{i=1}^k C(v_i, v_{i+1}) > 0,
-    $$
+$$
+\sum_{i=1}^k C(v_i, v_{i+1}) > 0,
+$$
 
     o que contradiz a igualdade $\sum_{i=1}^k C(v_i, v_{i+1}) = 0$.
 
@@ -113,18 +113,18 @@ Provar que todos os caminhos em $D$ terminam no nó raiz $r$.
 1. **Propriedade da Construção de $D$**:
     Para cada aresta $(u, v) \in E_D$, temos:
 
-    $$
-    OF(v) = C(u, v) + OF(u).
-    $$
+$$
+OF(v) = C(u, v) + OF(u).
+$$
 
     Isso implica que $OF(v)$ é maior que $OF(u)$, pois $C(u, v) > 0$.
 
 2. **Decréscimo de $OF$ ao Longo do Caminho**:
     Em qualquer caminho $v_1 \to v_2 \to \cdots \to v_k$ em $D$, temos:
 
-    $$
-    OF(v_1) > OF(v_2) > \cdots > OF(v_k).
-    $$
+$$
+OF(v_1) > OF(v_2) > \cdots > OF(v_k).
+$$
 
     Como $OF(v)$ é inicializado como $+\infty$ para todos os nós, exceto a raiz $r$, e $OF(r) = 0$, o valor de $OF$ decresce ao longo do caminho até atingir $OF(r) = 0$.
 
