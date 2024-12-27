@@ -1,7 +1,9 @@
 # Definição Iterativa OF
 
 Definimos $OF$ iterativamente da seguinte forma:
+
 1. **Inicialização**:
+
     $$
     OF^{(0)}(v) =
     \begin{cases}
@@ -13,6 +15,7 @@ Definimos $OF$ iterativamente da seguinte forma:
     definimos também que $OF^{(t)}(r)=0$ para qualquer valor de $t$.
 
 2. **Iteração**:
+
     $$
     OF^{(t+1)}(v) = \min_{u \in N(v)} \big\{ C(v, u) + OF^{(t)}(u) \big\}, \quad \forall v \in V\setminus\lbrace r \rbrace.
     $$
@@ -28,8 +31,11 @@ Vamos demonstrar formalmente que a construção iterativa de $OF$ converge no mo
 ### Hipóteses
 
 1. O grafo $G = (V, E)$ é um grafo conexo.
+
 2. A função custo $C: E \to \mathbb{R}^+$ satisfaz $C(u, v) > 0$ para todas as arestas $(u, v) \in E$.
+
 3. A função objetivo $OF: V \to \mathbb{R}$ é definida iterativamente como:
+
 $$
 OF^{(t+1)}(v) =
 \begin{cases}
@@ -37,9 +43,11 @@ OF^{(t+1)}(v) =
 \min_{u \in N_G(v)} \big(C(v, u) + OF^{(t)}(u)\big), & \text{caso contrário}.
 \end{cases}
 $$
+
 Onde $r \in V$ é a raiz e $N_G(v)$ é a vizinhança de $v$ no grafo $G$.
 
 4. A inicialização de $OF^{(0)}$ é dada por:
+
 $$
 OF^{(0)}(v) =
 \begin{cases}
@@ -58,14 +66,17 @@ $$
 1. **Monotonicidade**
 
     Pela definição de $OF^{(t+1)}(v)$, temos:
+
     $$
     OF^{(t+1)}(v) = \min_{u \in N_G(v)} \big(C(v, u) + OF^{(t)}(u)\big).
     $$
 
     Como $C(v, u) > 0$ e $\min$ seleciona o menor valor, segue que:
+
     $$
     OF^{(t+1)}(v) \leq OF^{(t)}(v), \quad \forall t \geq 0, \forall v \in V.
     $$
+
     Isso implica que a sequência $\lbrace OF^{(t)}(v) \rbrace _{t=0}^\infty$ é **monótona não crescente** para cada nó $v \in V$.
 
 2. **Finitude**
@@ -75,11 +86,13 @@ $$
     $C(v, u) > 0$ implica que $OF(v)$ não pode assumir valores negativos.
 
     Assim, temos:
+
     $$
     0 \leq OF^{(t+1)}(v) \leq OF^{(t)}(v), \quad \forall t \geq 0.
     $$
 
     Como $\lbrace OF^{(t)}(v) \rbrace _{t=0}^\infty$ é monótona e limitada inferiormente, segue do **teorema da convergência de sequências monótonas** que:
+
     $$
     \lim_{t \to \infty} OF^{(t)}(v) \text{ existe para todo } v \in V.
     $$
