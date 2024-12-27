@@ -12,12 +12,12 @@ OF^{(0)}(v) =
 \end{cases}
 $$
 
-    definimos também que $OF^{(t)}(r)=0$ para qualquer valor de $t$.
+definimos também que $OF^{(t)}(r)=0$ para qualquer valor de $t$.
 
 2. **Iteração**:
 
 $$
-OF^{(t+1)}(v) = \min_{u \in N(v)} \big\{ C(v, u) + OF^{(t)}(u) \big\}, \quad \forall v \in V\setminus\lbrace r \rbrace.
+OF^{(t+1)}(v) = \min_{u \in N(v)} \big\lbrace C(v, u) + OF^{(t)}(u) \big\rbrace, \quad \forall v \in V\setminus\lbrace r \rbrace.
 $$
 
 3. **Finalização**:
@@ -65,33 +65,33 @@ $$
 
 1. **Monotonicidade**
 
-    Pela definição de $OF^{(t+1)}(v)$, temos:
+Pela definição de $OF^{(t+1)}(v)$, temos:
 
 $$
 OF^{(t+1)}(v) = \min_{u \in N_G(v)} \big(C(v, u) + OF^{(t)}(u)\big).
 $$
 
-    Como $C(v, u) > 0$ e $\min$ seleciona o menor valor, segue que:
+Como $C(v, u) > 0$ e $\min$ seleciona o menor valor, segue que:
 
 $$
 OF^{(t+1)}(v) \leq OF^{(t)}(v), \quad \forall t \geq 0, \forall v \in V.
 $$
 
-    Isso implica que a sequência $\lbrace OF^{(t)}(v) \rbrace _{t=0}^\infty$ é **monótona não crescente** para cada nó $v \in V$.
+Isso implica que a sequência $\lbrace OF^{(t)}(v) \rbrace _{t=0}^\infty$ é **monótona não crescente** para cada nó $v \in V$.
 
 2. **Finitude**
 
-    Os valores de $OF^{(t)}(v)$ são limitados inferiormente por $0$, já que:
+Os valores de $OF^{(t)}(v)$ são limitados inferiormente por $0$, já que:
 
-    $C(v, u) > 0$ implica que $OF(v)$ não pode assumir valores negativos.
+$C(v, u) > 0$ implica que $OF(v)$ não pode assumir valores negativos.
 
-    Assim, temos:
+Assim, temos:
 
 $$
 0 \leq OF^{(t+1)}(v) \leq OF^{(t)}(v), \quad \forall t \geq 0.
 $$
 
-    Como $\lbrace OF^{(t)}(v) \rbrace _{t=0}^\infty$ é monótona e limitada inferiormente, segue do **teorema da convergência de sequências monótonas** que:
+Como $\lbrace OF^{(t)}(v) \rbrace _{t=0}^\infty$ é monótona e limitada inferiormente, segue do **teorema da convergência de sequências monótonas** que:
 
 $$
 \lim_{t \to \infty} OF^{(t)}(v) \text{ existe para todo } v \in V.
@@ -99,25 +99,25 @@ $$
 
 3. **Propagação Topológica**
 
-    O cálculo de $OF^{(t)}(v)$ em $t+1$ depende apenas dos valores $OF^{(t)}(u)$ para $u \in N_G(v)$.
+O cálculo de $OF^{(t)}(v)$ em $t+1$ depende apenas dos valores $OF^{(t)}(u)$ para $u \in N_G(v)$.
 
-    Consideremos o comprimento do caminho mais curto do nó $v$ até a raiz $r$ em $G$, denotado como $d(v, r)$:
+Consideremos o comprimento do caminho mais curto do nó $v$ até a raiz $r$ em $G$, denotado como $d(v, r)$:
 
-    - Se $d(v, r) = 1$, então $OF^{(1)}(v)$ é computado diretamente a partir de $C(v, r)$.
+- Se $d(v, r) = 1$, então $OF^{(1)}(v)$ é computado diretamente a partir de $C(v, r)$.
 
-    - Se $d(v, r) = k$, então $OF^{(k)}(v)$ será atualizado corretamente, pois depende de $OF^{(k-1)}(u)$ dos nós $u$ a uma distância menor de $r$.
+- Se $d(v, r) = k$, então $OF^{(k)}(v)$ será atualizado corretamente, pois depende de $OF^{(k-1)}(u)$ dos nós $u$ a uma distância menor de $r$.
 
 4. **Convergência em $n - 1$ Iterações**
 
-    Em um grafo com $n$ nós, o comprimento máximo de qualquer caminho simples é $n - 1$ (em um grafo conexo).
+Em um grafo com $n$ nós, o comprimento máximo de qualquer caminho simples é $n - 1$ (em um grafo conexo).
 
-    Após $n - 1$ iterações, todos os nós $v \in V$ terão seus valores $OF(v)$ estabilizados, pois o custo acumulado terá sido propagado da raiz para todos os outros nós.
+Após $n - 1$ iterações, todos os nós $v \in V$ terão seus valores $OF(v)$ estabilizados, pois o custo acumulado terá sido propagado da raiz para todos os outros nós.
 
 5. **Estabilização**
 
-    Como $OF^{(t+1)}(v) \leq OF^{(t)}(v)$ e os valores são atualizados apenas quando ocorre uma redução, o algoritmo estabiliza em no máximo $n - 1$ iterações.
+Como $OF^{(t+1)}(v) \leq OF^{(t)}(v)$ e os valores são atualizados apenas quando ocorre uma redução, o algoritmo estabiliza em no máximo $n - 1$ iterações.
 
-    No ponto de estabilização, temos:
+No ponto de estabilização, temos:
 
 $$
 OF^{(t+1)}(v) = OF^{(t)}(v), \quad \forall v \in V.
